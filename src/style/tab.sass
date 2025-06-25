@@ -1,0 +1,25 @@
+.tab
+  display: flex
+  justify-content: space-between
+  gap: 20px
+  border-radius: 15px
+  background-color: #2C2C2C
+  padding: 10px 15px
+  -webkit-box-shadow: 0px 6px 13px 4px rgba(0, 0, 0, 0.2)
+  -moz-box-shadow: 0px 6px 13px 4px rgba(0, 0, 0, 0.2)
+  box-shadow: 0px 6px 13px 4px rgba(0, 0, 0, 0.2)
+  position: absolute
+  bottom: 40px
+  left: 50%
+  transform: translateX(-50%)
+
+  &-item
+    transition: all 0.3s ease
+    padding: 5px
+    border-radius: 10px
+
+    &--active
+      background-color: #0C8CE9
+
+    &:hover
+      background-color: #ffffff16
