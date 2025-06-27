@@ -1,0 +1,65 @@
+
+button
+  background: transparent
+.left-panel
+  height: 100%
+  background-color: #2C2C2C
+  width: 200px
+  padding: 15px
+  transition: all 0.3s ease-in
+  z-index: 10
+  // transition: all 0.3s ease-in
+
+  &__block
+    padding: 10px 0px
+
+    &:not(:last-child)
+      border-bottom: 1px solid #444444
+
+  &__header
+    margin-bottom: 15px
+
+.row
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-wrap: wrap
+  // transition: all 0.3s ease-in
+  transition: all 0.3s ease-in
+  &--left
+    justify-content: flex-start
+    gap: 10px
+
+.layers-list
+  display: flex
+  flex-direction: column
+  gap: 14px
+
+.open
+  background-color: #2C2C2C
+
+.close .layers
+  transform: translateX(-150px)
+
+.close.left-panel
+  width: 50px
+.logo
+  text-wrap: nowrap
+.close .logo
+  display: none
+// правая панел
+.right-panel
+  height: 100%
+  background-color: #2C2C2C
+  width: 200px
+  padding: 15px
+  z-index: 10
+.avatar
+  border: 2px solid white
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  overflow: hidden
+
+img
+  width: 100%

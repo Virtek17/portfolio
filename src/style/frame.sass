@@ -1,0 +1,62 @@
+.frame
+  border: 1px solid #1589DE
+  padding: 15px
+  position: relative
+  margin-bottom: 50px
+  transition: none
+
+  background-color: red
+
+  animation: pop 1s ease-in 0.3s 1
+  &__name
+    position: absolute
+    top: -34px
+    left: 0
+
+  &__size
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    bottom: -40px
+
+    background-color: #0C8CE9
+    padding: 5px
+    border-radius: 5px
+
+.block
+  width: 10px
+  height: 10px
+  background-color: #fff
+  border: 1px solid #0C8CE9
+
+  &-1
+    position: absolute
+    top: -5px
+    left: -5px
+  &-2
+    position: absolute
+    top: -5px
+    right: -5px
+
+  &-3
+    position: absolute
+    bottom: -5px
+    left: -5px
+  &-4
+    position: absolute
+    bottom: -5px
+    right: -5px
+
+.pop
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+@keyframes pop
+  0%
+    transform: translateX(-200px)
+    opacity: 0
+  100%
+    transform: translateX(0px)
+    opacity: 1

@@ -1,15 +1,17 @@
 interface SvgIconProps {
   name: string;
+  w?: number;
+  h?: number;
 }
 
-const SvgIcon = ({ name }: SvgIconProps) => {
+const SvgIcon = ({ name, w = 24, h = 24 }: SvgIconProps) => {
   switch (name) {
     case "home":
       return (
         <div className="svg-container">
           <svg
-            width="48"
-            height="48"
+            width={w}
+            height={h}
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +28,8 @@ const SvgIcon = ({ name }: SvgIconProps) => {
       return (
         <div className="svg-container">
           <svg
-            width="48"
-            height="48"
+            width={w}
+            height={h}
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,8 +46,8 @@ const SvgIcon = ({ name }: SvgIconProps) => {
       return (
         <div className="svg-container">
           <svg
-            width="48"
-            height="48"
+            width={w}
+            height={h}
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +64,8 @@ const SvgIcon = ({ name }: SvgIconProps) => {
       return (
         <div className="svg-container">
           <svg
-            width="48"
-            height="48"
+            width={w}
+            height={h}
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -82,6 +84,24 @@ const SvgIcon = ({ name }: SvgIconProps) => {
                 <rect width="48" height="48" fill="white" />
               </clipPath>
             </defs>
+          </svg>
+        </div>
+      );
+
+    case "hide":
+      return (
+        <div className="svg-container">
+          <svg
+            width={w}
+            height={h}
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M29.614 29.504C29.3477 29.7994 28.975 29.9769 28.5778 29.9975C28.1806 30.0181 27.7915 29.8802 27.496 29.614L22.496 25.114C22.34 24.9734 22.2153 24.8015 22.13 24.6096C22.0446 24.4177 22.0005 24.21 22.0005 24C22.0005 23.79 22.0446 23.5823 22.13 23.3904C22.2153 23.1985 22.34 23.0266 22.496 22.886L27.496 18.386C27.6415 18.2493 27.8127 18.143 27.9998 18.0733C28.1869 18.0036 28.386 17.972 28.5854 17.9802C28.7849 17.9885 28.9807 18.0365 29.1614 18.1214C29.342 18.2063 29.5039 18.3264 29.6376 18.4747C29.7712 18.623 29.8739 18.7965 29.9397 18.985C30.0054 19.1735 30.0329 19.3732 30.0204 19.5724C30.008 19.7717 29.9559 19.9664 29.8672 20.1453C29.7785 20.3241 29.6551 20.4835 29.504 20.614L27.408 22.5L34.5 22.5C34.8978 22.5 35.2794 22.658 35.5607 22.9393C35.842 23.2206 36 23.6022 36 24C36 24.3978 35.842 24.7794 35.5607 25.0607C35.2794 25.342 34.8978 25.5 34.5 25.5L27.408 25.5L29.504 27.386C29.7994 27.6523 29.9769 28.025 29.9975 28.4222C30.0181 28.8194 29.8802 29.2085 29.614 29.504ZM4 13.5C4 12.7777 4.14226 12.0625 4.41867 11.3952C4.69507 10.7279 5.10019 10.1216 5.61091 9.61091C6.12164 9.10019 6.72795 8.69506 7.39524 8.41866C8.06253 8.14226 8.77773 8 9.5 8L38.5 8C39.2223 8 39.9375 8.14226 40.6048 8.41866C41.2721 8.69506 41.8784 9.10019 42.3891 9.61091C42.8998 10.1216 43.3049 10.7279 43.5813 11.3952C43.8577 12.0625 44 12.7777 44 13.5L44 34.5C44 35.9587 43.4205 37.3576 42.3891 38.3891C41.3576 39.4205 39.9587 40 38.5 40L9.5 40C8.04131 40 6.64236 39.4205 5.61091 38.3891C4.57946 37.3576 4 35.9587 4 34.5L4 13.5ZM17.996 11L17.996 37L38.5 37C39.88 37 41 35.88 41 34.5L41 13.5C41 12.12 39.88 11 38.5 11L17.996 11Z"
+              fill="currentColor"
+            />
           </svg>
         </div>
       );

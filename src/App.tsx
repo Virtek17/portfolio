@@ -1,15 +1,21 @@
 import { Outlet } from "react-router-dom";
-import Tab from "./components/tab";
 import "./index.css";
+import Tab from "./components/Tab";
+import Frame from "./components/Frame";
+import LeftPanel from "./components/LeftPanel";
+import RightPanel from "./components/RightPanel";
+import Main from "./components/Main";
 
 const App = () => {
   return (
-    <div className="main">
-      <Tab />
-      <main>
+    <Main>
+      <LeftPanel />
+      <Frame frameName="Главная">
         <Outlet /> {/* Здесь будут отображаться страницы */}
-      </main>
-    </div>
+      </Frame>
+      <RightPanel />
+      <Tab />
+    </Main>
   );
 };
 
