@@ -10,21 +10,21 @@ const LeftPanel = () => {
   };
 
   return (
-    <div className={clsx("left-panel", visible ? "open" : "close")}>
-      <div className="left-panel__block left-panel__block--header row">
+    <div className={clsx("panel", visible ? "open" : "close")}>
+      <div className="panel__block panel__header ">
         <div className="logo">Site Name</div>
         <button className={clsx("btn-hide")} onClick={() => handleClose()}>
           <SvgIcon name="hide" />
         </button>
       </div>
-      <div className="left-panel__block layers">
-        <div className="left-panel__header">Layers</div>
-        <ul className="layers-list">
-          <li className="layers__item row row--left">
+      <div className="panel__block layers">
+        <div className="panel__header">Layers</div>
+        <ul className="layers">
+          <li className="layers__item ">
             <SvgIcon name="home" w={16} h={16} />
             Заголовок
           </li>
-          <li className="layers__item row row--left">
+          <li className="layers__item ">
             <SvgIcon name="home" w={16} h={16} />
             Заголовок
           </li>

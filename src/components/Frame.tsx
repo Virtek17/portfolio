@@ -32,7 +32,8 @@ const Frame = ({ children, frameName }: FrameProps) => {
       <div className="frame__size">
         {size.width} x {size.height}
       </div>
-      <div className="frame__container">{children}</div>
+      
+      {children}
 
       <div className="block block-1"></div>
       <div className="block block-2"></div>

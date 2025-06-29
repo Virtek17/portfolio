@@ -1,14 +1,14 @@
 
 button
   background: transparent
-.left-panel
+
+.panel 
   height: 100%
   background-color: #2C2C2C
   width: 200px
   padding: 15px
   transition: all 0.3s ease-in
   z-index: 10
-  // transition: all 0.3s ease-in
 
   &__block
     padding: 10px 0px
@@ -18,22 +18,20 @@ button
 
   &__header
     margin-bottom: 15px
+    display: flex
+    justify-content: space-between
+    align-items: center
 
-.row
-  display: flex
-  align-items: center
-  justify-content: space-between
-  flex-wrap: wrap
-  // transition: all 0.3s ease-in
-  transition: all 0.3s ease-in
-  &--left
-    justify-content: flex-start
-    gap: 10px
 
-.layers-list
+.layers
   display: flex
   flex-direction: column
   gap: 14px
+
+  &__item 
+    display: flex
+    align-items: center
+    gap: 10px
 
 .open
   background-color: #2C2C2C

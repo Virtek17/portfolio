@@ -1,7 +1,9 @@
 @import url("./style/tab.sass");
 @import url("./style/svgIcon.sass");
 @import url("./style/frame.sass");
-@import url("./style/leftPanel.sass");
+@import url("./style/panel.sass");
+@import url("./style/page.sass");
+
 @import url("./reset.css");
 
 :root {
