@@ -1,6 +1,7 @@
 import ava from "../assets/avatar.jpg";
-import { ColorPicker } from "primereact/colorpicker";
+// import { ColorPicker } from "primereact/colorpicker";
 import { useAppContext } from "../AppContext";
+import { ColorPicker, Space } from "antd";
 
 const RightPanel = () => {
   const { colorHEX, setColorHEX } = useAppContext();
@@ -28,14 +29,13 @@ const RightPanel = () => {
           <li className="layers__item">Размер</li>
           <li className="layers__item">
             <div>Цвет</div>
-            <div>
+            <Space direction="vertical">
               <ColorPicker
-                style={{ width: "20px" }}
-                format="hex"
-                value={textColorHEX}
-                onChange={(e) => setTextColorHEX("#" + e.value)}
+                defaultValue="#ffffff"
+                showText
+                onChange={(color) => setTextColorHEX(color.toHexString())}
               />
-            </div>
+            </Space>
           </li>
         </ul>
       </div>
@@ -44,11 +44,18 @@ const RightPanel = () => {
         <ul className="layers">
           <li className="layers__item">Выбрать цвет</li>
           <li className="layers__item">{colorHEX}</li>
-          <ColorPicker
+          <Space direction="vertical">
+            <ColorPicker
+              defaultValue="#ffffff00"
+              showText
+              onChange={(color) => setColorHEX(color.toHexString())}
+            />
+          </Space>
+          {/* <ColorPicker
             format="hex"
             value={colorHEX}
             onChange={(e) => setColorHEX("#" + e.value)}
-          />
+          /> */}
         </ul>
       </div>
       <div className="panel__block">
@@ -56,11 +63,13 @@ const RightPanel = () => {
         <ul className="layers">
           <li className="layers__item">Выбрать цвет</li>
           <li className="layers__item">{decorColorHEX}</li>
-          <ColorPicker
-            format="hex"
-            value={decorColorHEX}
-            onChange={(e) => setDecorColorHEX("#" + e.value)}
-          />
+          <Space direction="vertical">
+            <ColorPicker
+              defaultValue="#D143EA"
+              showText
+              onChange={(color) => setDecorColorHEX(color.toHexString())}
+            />
+          </Space>
         </ul>
       </div>
       <div className="panel__block">

@@ -14,7 +14,7 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [colorHEX, setColorHEX] = useState("#35264B");
+  const [colorHEX, setColorHEX] = useState("#ffffff00");
   const [textColorHEX, setTextColorHEX] = useState("#ffffff");
   const [decorColorHEX, setDecorColorHEX] = useState("#D143EA");
 

@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { useAppContext } from "../AppContext";
 
 const HomePage = () => {
-  const { textColorHEX } = useAppContext();
+  const { textColorHEX, decorColorHEX } = useAppContext();
 
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -20,7 +20,13 @@ const HomePage = () => {
           <div className="bage" style={{ color: textColorHEX }}>
             Веб разработчик
           </div>
-          <h1 className="text-block__title" style={{ color: textColorHEX }}>
+          <h1
+            className="text-block__title"
+            style={{
+              color: textColorHEX,
+              textShadow: `7px 3px 5px ${decorColorHEX}`,
+            }}
+          >
             Илья Твердохлеб
           </h1>
         </div>
