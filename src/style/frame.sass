@@ -3,24 +3,46 @@
   position: relative
   margin-bottom: 50px
   transition: none
+  // background-color: #35264B
+  overflow: hidden
 
-  background-color: #989898
+  &__container
+    position: relative
+    animation: pop 1s ease-in 0.3s 1
 
-  animation: pop 1s ease-in 0.3s 1
   &__name
     position: absolute
-    top: -34px
+    top: -24px
     left: 0
 
   &__size
     position: absolute
     left: 50%
     transform: translateX(-50%)
-    bottom: -40px
+    bottom: 0px
 
     background-color: #0C8CE9
     padding: 5px
     border-radius: 5px
+
+  &__glow-1
+    position: absolute
+    bottom: -250px
+    left: -250px
+    width: 500px
+    height: 500px
+    background-color: #D143EA
+    border-radius: 50%
+    filter: blur(80px)
+  &__glow-2
+    position: absolute
+    top: -250px
+    right: -250px
+    width: 500px
+    height: 500px
+    background-color: #D143EA
+    border-radius: 50%
+    filter: blur(80px)
 
 .block
   width: 10px
@@ -59,3 +81,47 @@
   100%
     transform: translateX(0px)
     opacity: 1
+
+.swiper.frame-slider
+  padding: 50px
+
+.frame-slide
+  border: 1px solid #1589DE
+  position: relative
+
+  &__content
+    display: flex
+    justify-content: space-around
+    height: 100%
+
+  &__image
+    width: 50%
+    height: max-content
+    transform: translateY(40%)
+
+  &__block
+    background-color: #ffff
+    border: 1px solid #0C8CE9
+    width: 10px
+    height: 10px
+    position: absolute
+
+  &__block-1
+    top: -5px
+    left: -5px
+
+  &__block-2
+    top: -5px
+    right: -5px
+
+  &__block-3
+    bottom: -5px
+    left: -5px
+
+  &__block-4
+    bottom: -5px
+    right: -5px
+
+  &__name
+    position: absolute
+    top: -24px

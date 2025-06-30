@@ -7,6 +7,7 @@ import ContactPage from "./pages/ContactPage";
 import NotFoundPage from "./pages/NotFound";
 import SkillsPage from "./pages/SkillsPage";
 import ProjectsPage from "./pages/ProjectsPage";
+import { AppProvider } from "./AppContext";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   </React.StrictMode>
 );
