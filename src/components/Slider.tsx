@@ -35,12 +35,11 @@ const Slider = () => {
         <div className="frame-slide__block-4 frame-slide__block"></div>
         <div className="frame-slide__name">Carvet</div>
         <div className="frame-slide__content">
-          <img className="frame-slide__image" src={carvetDesktop} alt="" />
+          <img className="frame-slide__image--pc" src={carvetDesktop} alt="" />
           <img
-            className="frame-slide__image"
+            className="frame-slide__image--mobile"
             src={carvetMobile}
             alt=""
-            style={{ transform: "translateY(20%)", maxWidth: "200px" }}
           />
         </div>
       </SwiperSlide>
@@ -51,10 +50,9 @@ const Slider = () => {
         <div className="frame-slide__block-4 frame-slide__block"></div>
         <div className="frame-slide__name">Челбаскет</div>
         <div className="frame-slide__content">
-          <img className="frame-slide__image" src={basketDesktop} alt="" />
+          <img className="frame-slide__image--pc" src={basketDesktop} alt="" />
           <img
-            className="frame-slide__image mobile"
-            style={{ transform: "translateY(20%)", maxWidth: "200px" }}
+            className="frame-slide__image--mobile"
             src={basketMobile}
             alt=""
           />
@@ -67,11 +65,14 @@ const Slider = () => {
         <div className="frame-slide__block-4 frame-slide__block"></div>
         <div className="frame-slide__name">Livingtree</div>
         <div className="frame-slide__content">
-          <img className="frame-slide__image" src={livingtreeDesktop} alt="" />
           <img
-            className="frame-slide__image mobile"
+            className="frame-slide__image--pc"
+            src={livingtreeDesktop}
+            alt=""
+          />
+          <img
+            className="frame-slide__image--mobile"
             src={livingtreeMobile}
-            style={{ transform: "translateY(20%)", maxWidth: "200px" }}
             alt=""
           />
         </div>
@@ -83,11 +84,10 @@ const Slider = () => {
         <div className="frame-slide__block-4 frame-slide__block"></div>
         <div className="frame-slide__name">Barger</div>
         <div className="frame-slide__content">
-          <img className="frame-slide__image" src={bargerDesktop} alt="" />
+          <img className="frame-slide__image--pc" src={bargerDesktop} alt="" />
           <img
-            className="frame-slide__image mobile"
+            className="frame-slide__image--mobile"
             src={bargerMobile}
-            style={{ transform: "translateY(20%)", maxWidth: "200px" }}
             alt=""
           />
         </div>
@@ -99,12 +99,7 @@ const Slider = () => {
         <div className="frame-slide__block-4 frame-slide__block"></div>
         <div className="frame-slide__name">Learn Code</div>
         <div className="frame-slide__content">
-          <img
-            className="frame-slide__image"
-            style={{ transform: "none", maxWidth: "400px" }}
-            src={learnCode}
-            alt=""
-          />
+          <img className="frame-slide__image--lc" src={learnCode} alt="" />
         </div>
       </SwiperSlide>
     </Swiper>

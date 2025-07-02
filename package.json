@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "antd": "^5.26.3",
     "clsx": "^2.1.1",
+    "gsap": "^3.13.0",
     "matter-js": "^0.20.0",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.6",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@types/gsap": "^3.0.0",
     "@types/matter-js": "^0.19.8",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",

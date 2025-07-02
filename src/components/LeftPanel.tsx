@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SvgIcon from "./SvgIcon";
 import clsx from "clsx";
 
@@ -6,13 +6,17 @@ const LeftPanel = () => {
   const [visible, setVisible] = useState(true);
 
   const handleClose = () => {
-    setVisible(!visible);
+    if (window.innerWidth <= 768) {
+      setVisible(false);
+    } else {
+      setVisible(!visible);
+    }
   };
 
   return (
-    <div className={clsx("panel", visible ? "open" : "close")}>
+    <div className={clsx("panel panel-left", visible ? "open" : "close")}>
       <div className="panel__block panel__header ">
-        <div className="logo">Site Name</div>
+        <div className="logo">Tverdohleb.ru</div>
         <button className={clsx("btn-hide")} onClick={() => handleClose()}>
           <SvgIcon name="hide" />
         </button>

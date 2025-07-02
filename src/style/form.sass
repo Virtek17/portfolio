@@ -1,0 +1,265 @@
+.page-form
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  gap: 20px
+  height: 100%
+
+.services
+  display: flex
+  flex-direction: column
+  gap: 12px
+  margin: auto 40px
+  z-index: 20
+
+  grid-area: 1 / 1 / 2 / 7
+
+  &__item
+    padding: 20px
+    display: flex
+    align-items: center
+    gap: 20px
+    border: 1px solid #647165
+    background-color: #010f1b
+    border-radius: 10px
+    font-family: wadik
+    position: relative
+    flex-wrap: wrap
+  &__price
+    padding-right: 50px
+
+    text-wrap: nowrap
+
+.add
+  width: 30px
+  height: 30px
+  display: flex
+  justify-content: center
+  align-items: center
+  border-radius: 50%
+  border: 1px solid green
+
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  right: 10px
+
+.btn-icon
+  width: 20px
+  height: 20px
+  transition: all 0.3s ease
+
+  &--active
+    transform: rotate(45deg)
+
+.frame-row
+  position: relative
+
+.form-row
+  z-index: 100
+  grid-area: 1 / 8 / 2 / 13
+  margin: auto 50px auto 0px
+
+.text
+  font-size: 14px
+  font-family: uncage
+  margin-bottom: 10px
+
+.form
+  color: black
+  background-color: #ffff
+  border: #1589DE 1px solid
+  padding: 30px 20px
+  display: flex
+  flex-direction: column
+  gap: 24px
+  overflow: hidden
+
+  &__content
+    font-size: 14px
+    font-family: uncage
+
+  &-list__item
+    display: flex
+    justify-content: space-between
+    animation: animateText 0.3s ease 0s
+
+    &:not(:last-child)
+      margin-bottom: 12px
+
+  &__header
+    font-family: wadik
+    text-align: center
+    font-size: 24px
+    padding-bottom: 10px
+    border-bottom: #000000 2px dotted
+
+  &__total
+    font-family: wadik
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  &__btn-row
+    display: flex
+    justify-content: center
+    align-items: center
+
+  &__btn
+    border: 1px solid red
+    padding: 10px
+
+.block-3-form
+  position: absolute
+  bottom: -5px
+  left: -5px
+
+.block-4-form
+  position: absolute
+  bottom: -5px
+  right: -5px
+
+@keyframes animateText
+  0%
+    transform: translateX(-100%)
+  100%
+    transform: translateX(0%)
+
+.button
+  --😀: #644dff
+  --😀😀: #4836bb
+  --😀😀😀: #654dff63
+  cursor: pointer
+  width: 184px
+  height: 48px
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 1rem
+  font-size: 1.125em
+  font-weight: 800
+  letter-spacing: 2px
+  color: #fff
+  background: var(--😀)
+  border: 2px solid var(--😀😀)
+  border-radius: .75rem
+  box-shadow: 0 8px 0 var(--😀😀)
+  transform: skew(-10deg)
+  transition: all .1s ease
+  filter: drop-shadow(0 15px 20px var(--😀😀😀))
+
+  &:active
+    letter-spacing: 0px
+    transform: skew(-10deg) translateY(8px)
+    box-shadow: 0 0 0 var(--😀😀😀)
+
+$colors: (
+    whatsap: #42D15B,
+    vk: #097BFF,
+    tg: #2DA8E5
+)
+
+.input-row
+  border-bottom: 2px dotted #000
+  padding-bottom: 10px
+
+.radio-inputs
+  display: flex
+  max-width: 50px
+  user-select: none
+  gap: 6px
+
+.radio-input
+  clip: rect(0 0 0 0)
+  clip-path: inset(100%)
+  height: 1px
+  overflow: hidden
+  position: absolute
+  white-space: nowrap
+  width: 1px
+
+.radio-tile
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  width: 50px
+  min-height: 50px
+  border-radius: 0.5rem
+  border: 2px solid #b5bfd9
+  background-color: #fff
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+  transition: 0.15s ease
+  cursor: pointer
+  position: relative
+
+  &:hover::before
+    transform: scale(1)
+    opacity: 1
+
+.radio-icon
+  svg
+    width: 2rem
+    height: 2rem
+
+.radio-label
+  color: #707070
+  transition: 0.375s ease
+  text-align: center
+  font-size: 13px
+
+// Генерация правил для каждой соцсети
+@each $name, $color in $colors
+  .#{$name}
+    color: $color
+
+    &:hover
+      border-color: $color
+
+    &:checked + .radio-tile
+      border-color: $color
+      background-color: $color
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1)
+      color: $color
+
+      .radio-icon svg
+        color: #fff
+
+      .radio-label
+        color: $color
+
+      &::before
+        transform: scale(1)
+        opacity: 1
+        background-color: $color
+        border-color: $color
+
+    &:focus + .radio-tile
+      background-color: $color
+      border-color: #fff
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc
+
+      &::before
+        transform: scale(1)
+        opacity: 1
+
+/* From Uiverse.io by Yaseen549 */ 
+.inputs
+  display: flex
+  flex-direction: column
+  gap: 10px
+  margin-top: 10px
+.input
+  background-color: #212121
+  max-width: 100%
+  height: 40px
+  padding: 10px
+  border: 2px solid white
+  border-radius: 5px
+
+.input:focus
+  color: rgb(255, 255, 255)
+  background-color: #212121
+  outline-color: rgb(255, 0, 217)
+  box-shadow: 0px 0px 15px rgb(211, 14, 255)
+  transition: .1s
+  transition-property: box-shadow

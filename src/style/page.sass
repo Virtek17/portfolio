@@ -13,19 +13,7 @@
   position: absolute
   bottom: 0
   right: 0
-
-.photoOpen
-  animation: bounce2 2s ease
-
-@keyframes bounce2
-  0%, 20%, 50%, 80%, 100%
-    transform: translateY(0)
-
-  40%
-    transform: translateY(-30px)
-
-  60%
-    transform: translateY(-15px)
+  width: 550px
 
 .text-block
   padding: 50px 0px 50px 50px
@@ -40,6 +28,7 @@
     text-transform: uppercase
     font-family: wadik
     text-shadow: 7px 3px 5px rgba(249, 32, 245, 0.6)
+    margin: 40px 20px
 
   &__text
     font-family: uncage
@@ -63,3 +52,100 @@
 
 .wrap
   text-wrap: wrap
+
+.projects-title
+  position: absolute
+  top: 10%
+  left: 50%
+  margin: 0
+  transform: translateX(-50%) rotate(-5deg)
+
+.page
+
+  &__home
+
+    @media (max-width: 1600px)
+      .text-block__title
+        text-wrap: wrap
+        padding-right: 400px
+        font-size: 48px
+
+    @media (max-width: 1500px)
+      .photo
+        width: 500px
+
+    @media (max-width: 1300px)
+      .photo
+        width: 450px
+        transform: rotate(-45deg)
+        bottom: -60px
+        right: -60px
+
+      .text-block
+        padding: 10px
+      .text-block__title
+        margin-left: 0px
+
+    @media (max-width: 998px)
+      .text-block__text
+        font-size: 18px
+      .bage
+        margin-bottom: 20px
+        font-size: 14px
+        padding: 10px 10px 5px 10px
+      .text-block__title
+        margin: 0px
+      .photo
+        width: 300px
+      .text-block__title
+        font-size: 36px
+
+    @media (max-width: 540px)
+      .text-block__title
+        font-size: 24px
+      .text-block__text
+        font-size: 16px
+
+      .photo
+        bottom: 0
+        right: -50px
+        transform: rotate(0deg)
+
+      .text-block
+        justify-content: flex-start
+        gap: 48px
+
+    @media (max-width: 420px)
+      .text-block__title
+        font-size: 20px
+      .text-block__text
+        font-size: 12px
+
+      .photo
+        bottom: 0
+        right: -50px
+        transform: rotate(0deg)
+
+      .text-block
+        justify-content: flex-start
+        gap: 48px
+
+  &__skills
+
+    @media (max-width: 1600px)
+      .text-block__title
+        text-wrap: wrap
+        padding-right: 400px
+        font-size: 48px
+
+    @media (max-width: 1300px)
+      .text-block__title
+        // margin-left: 0px
+
+@media (max-width: 900px)
+  .projects-title
+    font-size: 35px
+
+@media (max-width: 420px)
+  .projects-title
+    font-size: 24px

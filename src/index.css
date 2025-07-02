@@ -3,6 +3,7 @@
 @import url("./style/frame.sass");
 @import url("./style/panel.sass");
 @import url("./style/page.sass");
+@import url("./style/form.sass");
 
 @import url("./reset.css");
 
@@ -19,6 +20,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --animate__delay-3s: 1s;
+  --animate__delay-4s: 0.5s;
 }
 
 #root {
@@ -84,6 +88,19 @@ h1 {
   align-items: center;
   height: 100%;
 }
+
+@media (max-width: 768px) {
+  .tempNameClass {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 540px) {
+  .tempNameClass {
+    justify-content: center;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

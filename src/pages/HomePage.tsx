@@ -1,27 +1,26 @@
-import { useEffect, useState } from "react";
 import photo from "../assets/photo.png";
 import clsx from "clsx";
 import { useAppContext } from "../AppContext";
-
+import "animate.css";
 const HomePage = () => {
   const { textColorHEX, decorColorHEX } = useAppContext();
 
-  const [open, setOpen] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setOpen(true);
-    }, 2000);
-  }, []);
-
   return (
-    <div className="page">
+    <div className="page page__home">
       <div className="text-block">
-        <div className="text-block__header">
-          <div className="bage" style={{ color: textColorHEX }}>
+        <div className={clsx("text-block__header")}>
+          <div
+            className={clsx(
+              "bage animate__animated animate__bounceIn animate__delay-1s"
+            )}
+            style={{ color: textColorHEX }}
+          >
             Веб разработчик
           </div>
           <h1
-            className="text-block__title"
+            className={clsx(
+              "text-block__title animate__animated animate__backInLeft animate__delay-2s"
+            )}
             style={{
               color: textColorHEX,
               textShadow: `7px 3px 5px ${decorColorHEX}`,
@@ -31,21 +30,35 @@ const HomePage = () => {
           </h1>
         </div>
         <div className="text-block__footer">
-          <p className="text-block__text" style={{ color: textColorHEX }}>
+          <p
+            className="text-block__text animate__animated animate__bounceInDown animate__delay-2s"
+            style={{ color: textColorHEX }}
+          >
             Сайты под ключ
           </p>
-          <p className="text-block__text" style={{ color: textColorHEX }}>
-            Быстро, чисто, с умом
-          </p>
+          <div
+            className="text-block__text"
+            style={{ color: textColorHEX, display: "flex", gap: 16 }}
+          >
+            <div className=" animate__animated animate__bounceIn animate__delay-3s ">
+              Быстро,
+            </div>
+            <div className=" animate__animated animate__bounceIn animate__delay-4s ">
+              Чисто,
+            </div>
+            <div className=" animate__animated animate__bounceIn animate__delay-5s ">
+              С умом
+            </div>
+          </div>
         </div>
       </div>
-      <div className="page__photo">
-        <img
-          src={photo}
-          alt="photo"
-          className={clsx("photo", open ? "photoOpen" : "")}
-        />
-      </div>
+      <img
+        src={photo}
+        alt="photo"
+        className={clsx(
+          "photo animate__animated animate__zoomInDown animate__delay-5s"
+        )}
+      />
     </div>
   );
 };

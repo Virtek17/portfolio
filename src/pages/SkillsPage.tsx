@@ -10,8 +10,12 @@ import Matter, {
   Composite,
   IRendererOptions,
 } from "matter-js";
+import { useAppContext } from "../AppContext";
+import "animate.css";
 
 const SkillsPage: React.FC = () => {
+  const { textColorHEX, decorColorHEX } = useAppContext();
+
   const sceneRef = useRef<HTMLDivElement | null>(null);
   const engineRef = useRef(Engine.create());
 
@@ -19,8 +23,13 @@ const SkillsPage: React.FC = () => {
     const engine = engineRef.current;
     const world = engine.world;
 
-    const width = window.innerWidth - 400;
-    const height = window.innerHeight - 300;
+    const width =
+      window.innerWidth <= 540
+        ? window.innerWidth - 50
+        : window.innerWidth <= 850
+        ? window.innerWidth - 150
+        : window.innerWidth - 400;
+    const height = window.innerWidth <= 900 ? 500 : 700;
 
     if (!sceneRef.current) return;
 
@@ -84,7 +93,7 @@ const SkillsPage: React.FC = () => {
       "WORDPRES",
     ];
     const textBodies = texts.map((text, index) => {
-      const x = window.innerWidth / 3;
+      const x = window.innerWidth / 3.5;
       const y = 100 + index * 80;
 
       return Bodies.rectangle(x, y, 160, 50, {
@@ -138,13 +147,29 @@ const SkillsPage: React.FC = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return "";
 
-    ctx.font = "64px wadik";
+    ctx.font = `${
+      window.innerWidth <= 400
+        ? "24px"
+        : window.innerWidth <= 850
+        ? "32px"
+        : window.innerWidth <= 1024
+        ? "48px"
+        : "64px"
+    }wadik`;
     const textWidth = ctx.measureText(text).width;
-    canvas.width = textWidth + 200;
+    canvas.width = textWidth + 850;
     canvas.height = 100;
 
-    ctx.font = "64px wadik";
-    ctx.fillStyle = "#ffff";
+    ctx.font = `${
+      window.innerWidth <= 400
+        ? "24px"
+        : window.innerWidth <= 850
+        ? "32px"
+        : window.innerWidth <= 1024
+        ? "48px"
+        : "64px"
+    } wadik`;
+    ctx.fillStyle = textColorHEX;
     ctx.textBaseline = "middle";
     ctx.textAlign = "center";
     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
@@ -154,10 +179,18 @@ const SkillsPage: React.FC = () => {
 
   return (
     <div
-      className="page"
+      className="page page__skills"
       style={{ position: "relative", height: "100vh", overflow: "hidden" }}
     >
-      <h1 className="text-block__title wrap">Инструменты без которых никуда</h1>
+      <h1
+        className="text-block__title wrap animate__animated animate__flipInX animate__fast"
+        style={{
+          color: textColorHEX,
+          textShadow: `7px 3px 5px ${decorColorHEX}`,
+        }}
+      >
+        Мой стэк
+      </h1>
       <div ref={sceneRef} style={{ position: "absolute", top: 0, left: 0 }} />
     </div>
   );

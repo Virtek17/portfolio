@@ -18,6 +18,8 @@ button
 
   &__header
     margin-bottom: 15px
+    font-size: 16px
+    font-weight: bold
     display: flex
     justify-content: space-between
     align-items: center
@@ -60,3 +62,96 @@ button
 
 img
   width: 100%
+
+/* From Uiverse.io by Medisetti-Venkata-Saikiran */ 
+.social-login-icons
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  gap: 5px
+
+  & svg
+    width: 40px
+
+.social-icon-1,
+.social-icon-2,
+.social-icon-3,
+.social-icon-4
+  width: 50px
+  height: 50px
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 5px
+
+.socialcontainer
+  height: 50px
+  overflow: hidden
+
+.social-icon-1
+  transition-duration: 0.4s
+  background-color: #2DA8E5
+
+  .socialcontainer:hover &
+    transform: translateY(-50px)
+
+.social-icon-2
+  transition-duration: 0.4s
+  background: #097BFF
+
+.socialcontainer:hover .social-icon-2
+  transform: translateY(-50px)
+
+.social-icon-3
+  transition-duration: 0.4s
+  background: #080808
+
+  .socialcontainer:hover &
+    transform: translateY(-50px)
+
+.social-icon-4
+  transition-duration: 0.4s
+  background: #0864F9
+
+  .socialcontainer:hover &
+    transform: translateY(-50px)
+
+@media (max-width: 768px)
+  .panel-left
+    display: none
+
+  .panel-right
+    width: 90px
+
+  .panel__block--size
+    display: none
+
+  .ant-color-picker-trigger-text
+    display: none
+
+  .layers__item--text
+    display: none
+
+  .layers__item
+    font-size: 12px
+    text-transform: uppercase
+
+  .panel
+    padding: 10px
+    height: 80%
+    border-radius: 10px
+    margin-right: 10px
+
+  .panel__header
+    justify-content: center
+    font-size: 14px
+
+  .layers
+    align-items: center
+
+  .social-login-icons
+    justify-content: center
+
+  @media (max-width: 540px)
+    .panel-right
+      display: none

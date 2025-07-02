@@ -1,9 +1,7 @@
 .frame
   border: 1px solid #1589DE
-  position: relative
   margin-bottom: 50px
   transition: none
-  // background-color: #35264B
   overflow: hidden
 
   &__container
@@ -14,6 +12,7 @@
     position: absolute
     top: -24px
     left: 0
+    color: white
 
   &__size
     position: absolute
@@ -61,26 +60,12 @@
 
   &-3
     position: absolute
-    bottom: -5px
+    bottom: 45px
     left: -5px
   &-4
     position: absolute
-    bottom: -5px
+    bottom: 45px
     right: -5px
-
-.pop
-  height: 100%
-  display: flex
-  justify-content: center
-  align-items: center
-
-@keyframes pop
-  0%
-    transform: translateX(-200px)
-    opacity: 0
-  100%
-    transform: translateX(0px)
-    opacity: 1
 
 .swiper.frame-slider
   padding: 50px
@@ -93,11 +78,26 @@
     display: flex
     justify-content: space-around
     height: 100%
+    position: relative
 
-  &__image
-    width: 50%
-    height: max-content
-    transform: translateY(40%)
+  &__image--pc
+    width: 500px
+    position: absolute
+    left: 0px
+    bottom: 100px
+
+  &__image--lc
+    width: 400px
+    position: absolute
+    left: 50%
+    transform: translate(-50%, 50%)
+    bottom: 50%
+
+  &__image--mobile
+    position: absolute
+    width: 230px
+    bottom: 50px
+    right: 50px
 
   &__block
     background-color: #ffff
@@ -125,3 +125,40 @@
   &__name
     position: absolute
     top: -24px
+
+@media (max-width: 1300px)
+  .frame-slide__image--pc
+    width: 400px
+
+  .frame-slide__image--mobile
+    width: 170px
+    right: 0px
+
+@media (max-width: 1080px)
+  .frame-slide__image--pc
+    width: 300px
+
+  .frame-slide__image--mobile
+    width: 120px
+    right: 20px
+
+@media (max-width: 1080px)
+  .frame-slide__image--pc
+    width: 95%
+    bottom: 50%
+    left: 50%
+    transform: translate(-50%, 50%)
+
+  .frame-slide__image--mobile
+    display: none
+
+@media (max-width: 900px)
+  .frame-slide__image--lc
+    width: 70%
+@media (max-width: 768px)
+  .frame-slide__image--lc
+    width: 60%
+
+@media (max-width: 420px)
+  .frame-slide__image--lc
+    width: 80%
