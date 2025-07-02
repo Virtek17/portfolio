@@ -8,6 +8,7 @@ import NotFoundPage from "./pages/NotFound";
 import SkillsPage from "./pages/SkillsPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import { AppProvider } from "./AppContext";
+import Thanks from "./pages/ThanksPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactPage />,
+      },
+      {
+        path: "thanks",
+        element: <Thanks />,
       },
       {
         path: "*",

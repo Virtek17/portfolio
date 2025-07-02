@@ -9,6 +9,9 @@ interface AppContextType {
 
   decorColorHEX: string;
   setDecorColorHEX: (color: string) => void;
+
+  clientName: string;
+  setClientName: (clientName: string) => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -17,6 +20,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [colorHEX, setColorHEX] = useState("#ffffff00");
   const [textColorHEX, setTextColorHEX] = useState("#ffffff");
   const [decorColorHEX, setDecorColorHEX] = useState("#D143EA");
+  const [clientName, setClientName] = useState("Аноноим");
 
   return (
     <AppContext.Provider
@@ -27,6 +31,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
         setTextColorHEX,
         decorColorHEX,
         setDecorColorHEX,
+        clientName,
+        setClientName,
       }}
     >
       {children}

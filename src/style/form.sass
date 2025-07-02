@@ -10,6 +10,9 @@
   gap: 12px
   margin: auto 40px
   z-index: 20
+  max-height: 400px
+  overflow-y: scroll
+  padding-right: 5px
 
   grid-area: 1 / 1 / 2 / 7
 
@@ -164,7 +167,7 @@ $colors: (
 
 .radio-inputs
   display: flex
-  max-width: 50px
+  width: max-content
   user-select: none
   gap: 6px
 
@@ -263,3 +266,78 @@ $colors: (
   box-shadow: 0px 0px 15px rgb(211, 14, 255)
   transition: .1s
   transition-property: box-shadow
+
+.error
+  box-shadow: 0px 0px 5px 2px red
+  border: none
+
+::-webkit-scrollbar-track
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+  background-color: transparent
+  width: 10px
+
+::-webkit-scrollbar
+  width: 3px // можно изменить на любую ширину
+  background-color: transparent
+
+::-webkit-scrollbar-thumb
+  background-color: #1f7b00 // синий ползунок
+  border: none // убираем рамку, или можешь сделать её прозрачной
+  border-radius: 50px
+
+@media (max-width: 1500px)
+  .page-form
+    display: flex
+
+  .services__item
+    flex-direction: column
+    align-items: flex-start
+    padding-right: 25px
+
+@media (max-width: 1200px)
+  .page-form
+    flex-direction: column
+    align-items: center
+    overflow-y: scroll
+    gap: 48px
+    padding: 10px
+
+  .form-row
+    margin: 0
+    order: 1
+
+  .services
+    max-height: 100%
+    min-height: 500px
+    order: 2
+
+@media (max-width: 925px)
+  .form__header
+    font-size: 18px
+
+  .text
+    font-size: 12px
+
+  .form-list__item
+    font-size: 12px
+
+  .form__total
+    font-size: 12px
+
+  .services__item
+    padding: 10px
+    padding-right: 30px
+
+  .form
+    padding: 20px 10px
+
+  .button
+    font-size: 14px
+    height: 40px
+
+  .radio-tile
+    width: max-content
+    min-height: auto
+
+  .services
+    margin: 0

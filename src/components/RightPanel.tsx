@@ -71,7 +71,11 @@ const RightPanel = () => {
         <ul className="layers">
           <li className="layers__item">
             <div className="social-login-icons">
-              <a href="#" className="socialcontainer">
+              <a
+                href="https://t.me/ne_user"
+                target="blank"
+                className="socialcontainer"
+              >
                 <div className="social-icon-1">
                   <svg
                     width="48"
@@ -101,7 +105,11 @@ const RightPanel = () => {
                   </svg>
                 </div>
               </a>
-              <a href="#" className="socialcontainer">
+              <a
+                href="https://vk.com/ne_user"
+                target="blank"
+                className="socialcontainer"
+              >
                 <div className="social-icon-2">
                   <svg
                     width="48"
@@ -131,7 +139,11 @@ const RightPanel = () => {
                   </svg>
                 </div>
               </a>
-              <a href="#" className="socialcontainer">
+              <a
+                href="https://github.com/Virtek17"
+                target="blank"
+                className="socialcontainer"
+              >
                 <div className="social-icon-3">
                   <svg
                     width="48"
@@ -161,7 +173,11 @@ const RightPanel = () => {
                   </svg>
                 </div>
               </a>
-              <a href="#" className="socialcontainer">
+              <a
+                href="mailto:y_tverdohleb@mail.ru"
+                target="blank"
+                className="socialcontainer"
+              >
                 <div className="social-icon-4">
                   <svg
                     width="48"

@@ -1,20 +1,57 @@
 import clsx from "clsx";
 import { useState } from "react";
+import "animate.css";
+import { sendTelegramMessage } from "../service/sendTelegramMessage";
+import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../AppContext";
+
+type Service = {
+  name: string;
+  price: number;
+  added: boolean;
+};
 
 const ContactPage = () => {
-  const initialServices = [
+  const { setClientName } = useAppContext();
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const [contactedMethod, setContactedMethod] = useState<
+    "tg" | "vk" | "wa" | ""
+  >("");
+  const [note, setNote] = useState("");
+
+  const [errors, setErrors] = useState<{
+    name?: string;
+    phone?: string;
+    services?: string;
+    contactedMethod: string;
+  }>({});
+
+  const initialServices: Service[] = [
+    {
+      name: "Консультация",
+      price: 0,
+      added: true,
+    },
     {
       name: "Верстка блока",
       price: 2000,
       added: false,
     },
     {
-      name: "Лендинг под ключ",
+      name: "Лендинг на WordPress",
       price: 20000,
       added: false,
     },
     {
-      name: "Натяжка верстки на Wordpress",
+      name: "Лендинг на Tilda",
+      price: 10000,
+      added: false,
+    },
+    {
+      name: "Натяжка Wordpress",
       price: 7000,
       added: false,
     },
@@ -28,9 +65,13 @@ const ContactPage = () => {
       price: 3000,
       added: false,
     },
+    {
+      name: "Установка SSL сертификата",
+      price: 3000,
+      added: false,
+    },
   ];
-
-  const [services, setServices] = useState(initialServices);
+  const [services, setServices] = useState<Service[]>(initialServices);
 
   const handleAdd = (index: number) => {
     setServices((prev) =>
@@ -40,33 +81,94 @@ const ContactPage = () => {
     );
   };
 
-  const total = services
-    .filter((s) => s.added)
-    .reduce((sum, s) => sum + s.price, 0);
+  const addedServices = services.filter((s) => s.added);
 
-  const addedServicesList = services.filter((s) => s.added);
+  const total = addedServices.reduce((sum, s) => sum + s.price, 0);
 
-  const convertPrice = (price: number) => {
-    const str = price.toString();
+  const formatPrice = (price: number) => price.toLocaleString("ru-RU") + " ₽";
 
-    if (str.length >= 4) {
-      const arr = str.split("");
-      const a = Math.ceil(str.length / 2 - 1);
-      arr.splice(a, 0, " ");
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const newErrors: typeof errors = {};
+  //   if (!name.trim()) newErrors.name = "Введите имя";
+  //   if (!phone.trim()) newErrors.phone = "Введите телефон";
+  //   if (!contactedMethod) newErrors.contactedMethod = "Выберите способ связи";
 
-      const cleanNumber = arr.join("") + " ₽";
-      return cleanNumber;
-    }
+  //   setErrors(newErrors);
+  //   if (Object.keys(newErrors).length > 0) return;
+
+  //   const servicesList = addedServices
+  //     .map((s) => `${s.name} (${formatPrice(s.price)})`)
+  //     .join("\n");
+  //   const noteStr = note.trim() ? `Примечание: ${note.trim()}\n` : "";
+  //   const methodLabels: Record<string, string> = {
+  //     tg: "Telegram",
+  //     vk: "VK",
+  //     wa: "WhatsApp",
+  //   };
+  //   alert(
+  //     `Имя: ${name}\n` +
+  //       `Телефон: ${phone}\n` +
+  //       `Способ связи: ${methodLabels[contactedMethod]}\n` +
+  //       noteStr +
+  //       `Услуги:\n${servicesList}\n` +
+  //       `Итого: ${formatPrice(total)}`
+  //   );
+  // };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const newErrors: typeof errors = {};
+    if (!name.trim()) newErrors.name = "Введите имя";
+    if (!phone.trim()) newErrors.phone = "Введите телефон";
+    if (!contactedMethod) newErrors.contactedMethod = "Выберите способ связи";
+
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
+
+    const servicesList = addedServices
+      .map((s) => `${s.name} (${formatPrice(s.price)})`)
+      .join("\n");
+    const noteStr = note.trim() ? `Примечание: ${note.trim()}\n` : "";
+    const methodLabels: Record<string, string> = {
+      tg: "Telegram",
+      vk: "VK",
+      wa: "WhatsApp",
+    };
+
+    const message =
+      `📝 Новая заявка\n\n` +
+      `👤 Имя: ${name}\n` +
+      `📞 Телефон: ${phone}\n` +
+      `💬 Способ связи: ${methodLabels[contactedMethod]}\n` +
+      (noteStr ? `🗒 ${noteStr}` : "") +
+      `📦 Услуги:\n${servicesList}\n` +
+      `💰 Итого: ${formatPrice(total)}`;
+
+    sendTelegramMessage(message);
+
+    setClientName(name);
+    setName("");
+    setPhone("");
+    setNote("");
+    setContactedMethod("");
+    setServices(
+      initialServices.map((s) => ({ ...s, added: s.name === "Консультация" }))
+    );
+    navigate("/thanks");
   };
-
   return (
     <div className="page-form">
       <div className="services">
         {services.map((service, index) => (
           <div key={index} className="services__item">
             <div className="services__name">{service.name}</div>
-            <div className="services__price">{convertPrice(service.price)}</div>
-            <button className="add" onClick={() => handleAdd(index)}>
+            <div className="services__price">{formatPrice(service.price)}</div>
+            <button
+              className="add"
+              onClick={() => handleAdd(index)}
+              type="button"
+            >
               <svg
                 className={clsx(
                   "btn-icon",
@@ -89,13 +191,25 @@ const ContactPage = () => {
       </div>
 
       <div className="frame-row form-row">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="form__header">Заказать консультацию</div>
           <div className="input-row">
             <div className="text">Выберите удобный способ связи</div>
-            <div className="radio-inputs">
+            <div
+              className={clsx(
+                "radio-inputs animate__animated",
+                errors.contactedMethod ? "error animate__shakeX" : ""
+              )}
+            >
               <label>
-                <input className="radio-input tg" type="radio" name="engine" />
+                <input
+                  className="radio-input tg"
+                  type="radio"
+                  name="engine"
+                  value="tg"
+                  checked={contactedMethod === "tg"}
+                  onChange={() => setContactedMethod("tg")}
+                />
                 <span className="radio-tile tg">
                   <span className="radio-icon">
                     <svg
@@ -115,7 +229,14 @@ const ContactPage = () => {
               </label>
 
               <label>
-                <input className="radio-input vk" type="radio" name="engine" />
+                <input
+                  className="radio-input vk"
+                  type="radio"
+                  name="engine"
+                  value="tg"
+                  checked={contactedMethod === "vk"}
+                  onChange={() => setContactedMethod("vk")}
+                />
                 <span className="radio-tile vk">
                   <span className="radio-icon">
                     <svg
@@ -139,6 +260,9 @@ const ContactPage = () => {
                   className="radio-input whatsap"
                   type="radio"
                   name="engine"
+                  value="wa"
+                  checked={contactedMethod === "wa"}
+                  onChange={() => setContactedMethod("wa")}
                 />
                 <span className="radio-tile whatsap">
                   <span className="radio-icon">
@@ -162,39 +286,53 @@ const ContactPage = () => {
               <input
                 type="text"
                 placeholder="Имя"
-                className="input"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className={clsx(
+                  "input animate__animated",
+                  errors.name ? "error animate__shakeX" : ""
+                )}
                 name="text"
               />
               <input
                 type="tel"
                 placeholder="Телефон"
-                className="input"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className={clsx(
+                  "input animate__animated",
+                  errors.phone ? "error animate__shakeX" : ""
+                )}
                 name="tel"
               />
               <input
                 type="text"
                 placeholder="ник тг/вк"
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
                 className="input"
                 name="other"
               />
             </div>
           </div>
           <div className="form__content">
-            {addedServicesList.length > 0
-              ? addedServicesList.map((service, index) => (
+            {addedServices
+              ? addedServices.map((service, index) => (
                   <div key={index} className="form-list__item">
                     <div>{service.name}</div>
-                    <div>{convertPrice(service.price)}</div>
+                    <div>{formatPrice(service.price)}</div>
                   </div>
                 ))
               : "Добавьте услугу"}
           </div>
           <div className="form__total">
             <div>Итого</div>
-            <div>{total > 0 ? convertPrice(total) : "0 Р"}</div>
+            <div>{total > 0 ? formatPrice(total) : "0 Р"}</div>
           </div>
           <div className="form__btn-row">
-            <button className="form__btn button">Заказать</button>
+            <button className="form__btn button" type="submit">
+              Заказать
+            </button>
           </div>
           <div className="frame__name">Форма</div>
           <div className="block block-1"></div>
