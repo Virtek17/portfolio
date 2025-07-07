@@ -9,6 +9,12 @@ import basketDesktop from "../assets/basket-desktop.png";
 import basketMobile from "../assets/basket-mobile.png";
 import learnCode from "../assets/learnCode.png";
 
+import fkChelDesktop from "../assets/fkChel-desktop.png";
+import fkChelMobile from "../assets/fkChel-mobile.png";
+
+import termirraDesktop from "../assets/termirra-desktop.png";
+import termirraMobile from "../assets/termirra-mobile.png";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -92,6 +98,42 @@ const Slider = () => {
           />
         </div>
       </SwiperSlide>
+      <SwiperSlide className="frame-slide">
+        <div className="frame-slide__block-1 frame-slide__block"></div>
+        <div className="frame-slide__block-2 frame-slide__block"></div>
+        <div className="frame-slide__block-3 frame-slide__block"></div>
+        <div className="frame-slide__block-4 frame-slide__block"></div>
+        <div className="frame-slide__name">ФК Челябинск</div>
+        <div className="frame-slide__content">
+          <img className="frame-slide__image--pc" src={fkChelDesktop} alt="" />
+          <img
+            className="frame-slide__image--mobile"
+            src={fkChelMobile}
+            alt=""
+          />
+        </div>
+      </SwiperSlide>
+
+      <SwiperSlide className="frame-slide">
+        <div className="frame-slide__block-1 frame-slide__block"></div>
+        <div className="frame-slide__block-2 frame-slide__block"></div>
+        <div className="frame-slide__block-3 frame-slide__block"></div>
+        <div className="frame-slide__block-4 frame-slide__block"></div>
+        <div className="frame-slide__name">Термирра</div>
+        <div className="frame-slide__content">
+          <img
+            className="frame-slide__image--pc"
+            src={termirraDesktop}
+            alt=""
+          />
+          <img
+            className="frame-slide__image--mobile"
+            src={termirraMobile}
+            alt=""
+          />
+        </div>
+      </SwiperSlide>
+
       <SwiperSlide className="frame-slide">
         <div className="frame-slide__block-1 frame-slide__block"></div>
         <div className="frame-slide__block-2 frame-slide__block"></div>

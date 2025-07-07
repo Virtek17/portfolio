@@ -1,8 +1,8 @@
 @font-face {
   font-family: wadik;
-  src: url("/assets/fonts/Wadik.woff2");
+  src: url("/assets/fonts/Wadik.woff2"), url("/assets/fonts/Wadik.woff");
 }
 @font-face {
   font-family: uncage;
-  src: url("/assets/fonts/Uncage.woff2");
+  src: url("/assets/fonts/Uncage.woff2"), url("/assets/fonts/Uncage.woff");
 }
